@@ -2,8 +2,18 @@ package animals;
 
 import java.util.Objects;
 
-public class Predators extends Mammals{
+public class Predators extends Mammals {
     private String typeOfFood;
+
+    public Predators(String name, int age, String livingEnvironment, double speed, String typeOfFood) {
+        super(name, age, livingEnvironment, speed);
+        if (typeOfFood == null && typeOfFood.isEmpty() && typeOfFood.isBlank()) {
+            this.typeOfFood = "default";
+        } else {
+            this.typeOfFood = typeOfFood;
+        }
+    }
+
 
     public String getTypeOfFood() {
         return typeOfFood;
@@ -16,13 +26,14 @@ public class Predators extends Mammals{
             this.typeOfFood = typeOfFood;
         }
     }
-    public Predators(String name, int age, String livingEnvironment, double speed, String typeOfFood) {
-        super(name, age, livingEnvironment, speed);
-        if (typeOfFood == null && typeOfFood.isEmpty() && typeOfFood.isBlank()) {
-            this.typeOfFood = "default";
-        } else {
-            this.typeOfFood = typeOfFood;
-        }
+
+    public void hunt() {
+        System.out.println("охотиться");
+    }
+
+    @Override
+    public String toString() {
+        return typeOfFood;
     }
 
     @Override
@@ -36,14 +47,5 @@ public class Predators extends Mammals{
     @Override
     public int hashCode() {
         return Objects.hash(typeOfFood);
-    }
-
-    public void hunt() {
-        System.out.println("охотиться");
-    }
-
-    @Override
-    public String toString() {
-        return typeOfFood;
     }
 }

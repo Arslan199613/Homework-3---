@@ -2,9 +2,18 @@ package animals;
 
 import java.util.Objects;
 
-public class Animals {
+public abstract class Animals {
     private String name;
     private int age;
+
+    public Animals(String name, int age) {
+        this.name = name;
+        if (age < 0) {
+            this.age = 17;
+        } else {
+            this.age = age;
+        }
+    }
 
     public String getName() {
         return name;
@@ -21,14 +30,17 @@ public class Animals {
             this.age = age;
         }
     }
-    public Animals(String name, int age) {
-        this.name = name;
-        if (age < 0) {
-            this.age = 17;
-        } else {
-            this.age = age;
-        }
+
+    public abstract void eat();
+
+    public abstract void go();
+
+
+    @Override
+    public String toString() {
+        return name + age;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -42,17 +54,5 @@ public class Animals {
         return Objects.hash(name, age);
     }
 
-    public void eat() {
-        System.out.println("есть");
-
-    }
-    public void go() {
-        System.out.println("Передвигаться");
-    }
-
-    @Override
-    public String toString() {
-        return name + age;
-
-    }
 }
+

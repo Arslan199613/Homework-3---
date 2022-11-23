@@ -51,6 +51,7 @@ public class Main {
         penguin.eat();
         penguin.go();
 
+        snake.go();
 
     }
 

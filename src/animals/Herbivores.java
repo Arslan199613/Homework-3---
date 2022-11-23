@@ -2,8 +2,18 @@ package animals;
 
 import java.util.Objects;
 
-public class Herbivores extends Mammals{
+public class Herbivores extends Mammals {
     private String typeOfFood;
+
+
+    public Herbivores(String name, int age, String livingEnvironment, double speed, String typeOfFood) {
+        super(name, age, livingEnvironment, speed);
+        if (typeOfFood == null && typeOfFood.isEmpty() && typeOfFood.isBlank()) {
+            this.typeOfFood = "default";
+        } else {
+            this.typeOfFood = typeOfFood;
+        }
+    }
 
     public String getTypeOfFood() {
         return typeOfFood;
@@ -16,13 +26,14 @@ public class Herbivores extends Mammals{
             this.typeOfFood = typeOfFood;
         }
     }
-    public Herbivores(String name, int age, String livingEnvironment, double speed, String typeOfFood) {
-        super(name, age, livingEnvironment, speed);
-        if (typeOfFood == null && typeOfFood.isEmpty() && typeOfFood.isBlank()) {
-            this.typeOfFood = "default";
-        } else {
-            this.typeOfFood = typeOfFood;
-        }
+
+    public void graze() {
+        System.out.println("Пастись");
+    }
+
+    @Override
+    public String toString() {
+        return typeOfFood;
     }
 
     @Override
@@ -38,13 +49,6 @@ public class Herbivores extends Mammals{
         return Objects.hash(typeOfFood);
     }
 
-    public void graze() {
-        System.out.println("Пастись");
-
-    }
-
-    @Override
-    public String toString() {
-        return typeOfFood;
-    }
 }
+
+

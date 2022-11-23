@@ -2,11 +2,16 @@ package animals;
 
 import java.util.Objects;
 
-public class Flying extends Birds{
+public class Flying extends Birds {
     public String typeOfMovement;
 
-    public String getTypeOfMovement() {
-        return typeOfMovement;
+    public Flying(String name, int age, String livingEnvironment, String typeOfMovement) {
+        super(name, age, livingEnvironment);
+        if (typeOfMovement == null && typeOfMovement.isEmpty() && typeOfMovement.isBlank()) {
+            this.typeOfMovement = "default";
+        } else {
+            this.typeOfMovement = typeOfMovement;
+        }
     }
 
     public void setTypeOfMovement(String typeOfMovement) {
@@ -15,6 +20,19 @@ public class Flying extends Birds{
         } else {
             this.typeOfMovement = typeOfMovement;
         }
+    }
+
+    public String getTypeOfMovement() {
+        return typeOfMovement;
+    }
+
+    public void fly() {
+        System.out.println("Летать высоко");
+    }
+
+    @Override
+    public String toString() {
+        return typeOfMovement;
     }
 
     @Override
@@ -28,22 +46,5 @@ public class Flying extends Birds{
     @Override
     public int hashCode() {
         return Objects.hash(typeOfMovement);
-    }
-
-    public Flying(String name, int age, String livingEnvironment, String typeOfMovement) {
-        super(name, age, livingEnvironment);
-        if (typeOfMovement == null && typeOfMovement.isEmpty() && typeOfMovement.isBlank()) {
-            this.typeOfMovement = "default";
-        } else {
-            this.typeOfMovement = typeOfMovement;
-        }
-    }
-    public void fly() {
-        System.out.println("Летать высоко");
-    }
-
-    @Override
-    public String toString() {
-        return typeOfMovement;
     }
 }

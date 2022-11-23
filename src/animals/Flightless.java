@@ -24,7 +24,17 @@ public class Flightless extends Birds{
             this.typeOfMovement = typeOfMovement;
         }
     }
+    public void walk() {
+        System.out.println("Гулять:)");
+    }
 
+    public void go() {
+        System.out.println("ходить по земле");
+    }
+
+    public void eat() {
+        System.out.println("есть только то, что на земле");
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -32,16 +42,10 @@ public class Flightless extends Birds{
         Flightless that = (Flightless) o;
         return Objects.equals(typeOfMovement, that.typeOfMovement);
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(typeOfMovement);
     }
-
-    public void walk() {
-        System.out.println("Гулять:)");
-    }
-
     @Override
     public String toString() {
         return typeOfMovement;
